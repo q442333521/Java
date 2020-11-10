@@ -6,7 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class PutSmartCardToMap extends AbstractSmartCard {
+public class SmartCard extends AbstractSmartCard {
 
     private static final DateFormat dateFormat = new SimpleDateFormat("yyyy");
     private static final Random rnd = new Random();
@@ -14,7 +14,7 @@ public class PutSmartCardToMap extends AbstractSmartCard {
     public static Student CreateStudent(String studentIDNumber, String typeOfStudent, String FirstName, String LastName, MyDate DateOfBirth) {
         return new Student(studentIDNumber, typeOfStudent, FirstName,LastName,DateOfBirth );
     }
-    public static PutSmartCardToMap createSmardCard(Student student) {
+    public static SmartCard createSmardCard(Student student) {
         Date time = Calendar.getInstance().getTime();
         Calendar ca = Calendar.getInstance();
         int nowyear =ca.get(Calendar.YEAR);
@@ -28,10 +28,10 @@ public class PutSmartCardToMap extends AbstractSmartCard {
             student=null;
         }
 
-        return new PutSmartCardToMap(student, time);
+        return new SmartCard(student, time);
     }
 
-    public PutSmartCardToMap(Student student, Date dateOfIssue) {
+    public SmartCard(Student student, Date dateOfIssue) {
         if (student != null) {
             component = new String[3];
             String firstNameInitial = student.getFirstName().substring(0, 1);
