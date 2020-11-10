@@ -124,7 +124,6 @@ public class PutSmartCardToMap extends AbstractSmartCard {
 
                 Date newdate = cal.getTime();
                 ExpiryDate.put(strcard, newdate);
-
             }
         }
     }
