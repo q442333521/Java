@@ -1,5 +1,7 @@
-package ncl.teach.entity;
+package ncl.teach.myabstract;
 
+import ncl.teach.entity.SmartCard;
+import ncl.teach.entity.StudentID;
 import ncl.teach.myinterface.StudentInterface;
 
 import java.util.Date;
@@ -47,8 +49,8 @@ public abstract class Student implements StudentInterface {
         return "Part1:" +part[0] + "   Part2:" + part[1];
     }
     public static class MyDate {
-        private  int day = 0;
-        private  int month = 0;
+        private static int day = 0;
+        private static int month = 0;
         private static int year = 0;
         public MyDate(int day, int month, int year) {
             this.day = day;
@@ -57,11 +59,11 @@ public abstract class Student implements StudentInterface {
 
         }
 
-        public  int getDay() {
+        public static int getDay() {
             return day;
         }
 
-        public  int getMonth() {
+        public static int getMonth() {
             return month;
         }
 

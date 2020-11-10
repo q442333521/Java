@@ -1,6 +1,8 @@
 package ncl.teach.entity;
 
 
+import ncl.teach.myabstract.Student;
+
 import java.util.HashMap;
 import java.util.Random;
 

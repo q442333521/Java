@@ -1,5 +1,7 @@
 package ncl.teach.entity;
 
+import ncl.teach.myabstract.Student;
+
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.File;

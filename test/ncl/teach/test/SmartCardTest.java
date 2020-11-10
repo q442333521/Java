@@ -1,7 +1,7 @@
 package ncl.teach.test;
 import ncl.teach.entity.SmartCard;
 import org.junit.Test;
-import ncl.teach.entity.Student;
+import ncl.teach.myabstract.Student;
 
 public class SmartCardTest {
     //private SmartCard a = new SmartCard();

@@ -1,7 +1,7 @@
 package ncl.teach.test;
 
 import org.junit.Test;
-import ncl.teach.entity.Student;
+import ncl.teach.myabstract.Student;
 import ncl.teach.entity.StudentID;
 
 import static org.junit.Assert.*;

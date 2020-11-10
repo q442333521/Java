@@ -1,5 +1,7 @@
 package ncl.teach.entity;
 
+import ncl.teach.myabstract.Student;
+
 import java.util.*;
 
 public class SchoolSystem extends Student {

@@ -1,7 +1,7 @@
 package ncl.teach.myinterface;
 
 import ncl.teach.entity.SmartCard;
-import ncl.teach.entity.Student;
+import ncl.teach.myabstract.Student;
 
 import java.util.Date;
 

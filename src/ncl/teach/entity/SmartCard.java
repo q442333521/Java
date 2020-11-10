@@ -1,11 +1,13 @@
 package ncl.teach.entity;
 
+import ncl.teach.myabstract.Student;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import java.util.*;
 
-public class SmartCard extends Student{
+public class SmartCard extends Student {
     private static Date dateOfIssue;
     protected HashMap<String, SmartCard> uniqueSmartCard = new HashMap<>();
     protected String[] component;

@@ -3,7 +3,7 @@ package ncl.teach.test;
 import ncl.teach.entity.SmartCard;
 import org.junit.Test;
 import ncl.teach.entity.Course;
-import ncl.teach.entity.Student;
+import ncl.teach.myabstract.Student;
 import ncl.teach.entity.StudentID;
 
 import static org.junit.Assert.*;
