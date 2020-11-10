@@ -42,22 +42,22 @@ public class PutSmartCardToMap extends AbstractSmartCard {
         Student student = new Student(studentIDNumber, typeOfStudent, FirstName,LastName,DateOfBirth );
         return student;
     }
-//    public boolean createSmardCard(Student student) {
-//        Date time = Calendar.getInstance().getTime();
-//        Calendar ca = Calendar.getInstance();
-//        int nowyear =ca.get(Calendar.YEAR);
-//        int brithyear = student.getDateOfBirth().getYear();
-//        int age = nowyear -brithyear;
-//        if (student.gettypeOfStudent().equals("UG") & age < 17) {
-//            return false;
-//        }else if (student.gettypeOfStudent().equals("PGR") & age < 20){
-//            return false;
-//        }else if (student.gettypeOfStudent().equals("PGT") & age < 20){
-//            return false;
-//        }
-//        PutSmartCardToMap(student, time);
-//        return true;
-//    }
+    public static PutSmartCardToMap createSmardCard(Student student) {
+        Date time = Calendar.getInstance().getTime();
+        Calendar ca = Calendar.getInstance();
+        int nowyear =ca.get(Calendar.YEAR);
+        int brithyear = student.getDateOfBirth().getYear();
+        int age = nowyear -brithyear;
+        if (student.gettypeOfStudent().equals("UG") & age < 17) {
+            //return false;
+        }else if (student.gettypeOfStudent().equals("PGR") & age < 20){
+            //return false;
+        }else if (student.gettypeOfStudent().equals("PGT") & age < 20){
+           // return false;
+        }
+
+        return new PutSmartCardToMap(student, time);
+    }
 
     /**
      * Constructor.
@@ -74,21 +74,10 @@ public class PutSmartCardToMap extends AbstractSmartCard {
      * Constructor.
      * @param student
      *            The owner of this driving licence.
-
+     * @param dateOfIssue
+     *            The date that the driving licence was issued.
      */
-    public String putSmartCardToMap(Student student) {
-        Date time = Calendar.getInstance().getTime();
-        Calendar ca = Calendar.getInstance();
-        int nowyear =ca.get(Calendar.YEAR);
-        int brithyear = student.getDateOfBirth().getYear();
-        int age = nowyear -brithyear;
-        if (student.gettypeOfStudent().equals("UG") & age < 17) {
-            return null;
-        }else if (student.gettypeOfStudent().equals("PGR") & age < 20){
-            return null;
-        }else if (student.gettypeOfStudent().equals("PGT") & age < 20){
-            return null;
-        }
+    public PutSmartCardToMap(Student student, Date dateOfIssue) {
         component = new String[3];
         String firstNameInitial = student.getFirstName().substring(0, 1);
         String lastNameInitial = student.getLastName().substring(0, 1);
@@ -101,7 +90,6 @@ public class PutSmartCardToMap extends AbstractSmartCard {
             this.component[2] = String.valueOf(rnd.nextInt(Integer.MAX_VALUE)).substring(0, 2);
         }
         uniqueSmartCard.put(this.toString(), this);
-        return this.toString();
     }
 
     /**
@@ -118,19 +106,26 @@ public class PutSmartCardToMap extends AbstractSmartCard {
         Date cardDateOfIssue = smartCard.getDateOfIssue();
         Calendar cal = Calendar.getInstance();
         cal.setTime(cardDateOfIssue);//设置起时间
-            if (student.gettypeOfStudent().equals("UG")) {
+        switch (student.gettypeOfStudent()) {
+            case "UG" -> {
                 cal.add(Calendar.YEAR, 4);//增加一年
-                Date newdate =  cal.getTime();
-                ExpiryDate.put(strcard,newdate);
-            }else if (student.gettypeOfStudent().equals("PGT")) {
-                cal.add(Calendar.YEAR, 2);//增加一年
-                Date newdate =  cal.getTime();
-                ExpiryDate.put(strcard,newdate);
-            }else if (student.gettypeOfStudent().equals("PGR")) {
-                cal.add(Calendar.YEAR, 5);//增加一年
-                Date newdate =  cal.getTime();
-                ExpiryDate.put(strcard,newdate);
 
+                Date newdate = cal.getTime();
+                ExpiryDate.put(strcard, newdate);
+            }
+            case "PGT" -> {
+                cal.add(Calendar.YEAR, 2);//增加一年
+
+                Date newdate = cal.getTime();
+                ExpiryDate.put(strcard, newdate);
+            }
+            case "PGR" -> {
+                cal.add(Calendar.YEAR, 5);//增加一年
+
+                Date newdate = cal.getTime();
+                ExpiryDate.put(strcard, newdate);
+
+            }
         }
     }
 
