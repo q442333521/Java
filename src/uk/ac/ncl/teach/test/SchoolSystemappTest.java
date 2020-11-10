@@ -2,9 +2,9 @@ package uk.ac.ncl.teach.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import uk.ac.ncl.teach.schoolSystem.SchoolSystemapp;
-import uk.ac.ncl.teach.students.studentID;
-import uk.ac.ncl.teach.students.Student;
+import uk.ac.ncl.teach.Module.SchoolSystemapp;
+import uk.ac.ncl.teach.Module.studentID;
+import uk.ac.ncl.teach.Module.Student;
 
 public class SchoolSystemappTest  {
     private SchoolSystemapp a = new SchoolSystemapp();

@@ -1,54 +1,21 @@
 package uk.ac.ncl.teach.test;
 
-import org.junit.Before;
 import org.junit.Test;
-import uk.ac.ncl.teach.students.studentID;
+import uk.ac.ncl.teach.Module.Student;
+import uk.ac.ncl.teach.Module.studentID;
 
 import static org.junit.Assert.*;
 
 public class studentIDTest {
-
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @Test
-    public void valueOf() {
-    }
-
-//    //-------------------TEST check method
-//    public static void main(String[] args) {
-//        // TODO Auto-generated method stub
-//
-//        studentID cr = studentID.getInstance("XJ03 QWE");
-//        System.out.println(cr);
-//
-//    }
-//    //print:Carnumber: XJ03 QWE
-
-    @Test
-    public void testToString() {
-    }
-    /**
-     * Show two examples where registration number is correct, so we do
-     * assertNotNull to show its correct.
-     */
-
-
     @Test
     public void StudentIDCorrectTest() {
         studentID StudnetRegId;
-        StudnetRegId = studentID.valueOf("a1234");
+        String str = studentID.cstudentID();
+        StudnetRegId = studentID.valueOf(str);
         assertNotNull(StudnetRegId);
         StudnetRegId = studentID.valueOf("z9999");
         assertNotNull(StudnetRegId);
     }
-
-
-    /**
-     * We check for what values we have wrong instantiation of the class, so
-     * we assertNull to show that we get null in the values.
-     */
     @Test
     public void WrongFormatTest() {
         studentID StudnetRegId;
@@ -74,27 +41,15 @@ public class studentIDTest {
         StudnetRegId = studentID.valueOf("aaaaaaaaaaa11111111111");
         assertNull(StudnetRegId);
         // check for unique identifiers
-        StudnetRegId = studentID.valueOf("a2222");
+        studentID.valueOf("a2222");
         StudnetRegId = studentID.valueOf("a2222");
         assertNull(StudnetRegId);
     }
-
     @Test
-    public void testGetComponents() {
-        studentID StudnetRegId;
-        String sid = "a1234";
-        StudnetRegId = studentID.valueOf(sid);
-
-        assertEquals(StudnetRegId.getComponents(), sid);
-
-    }
-
-    @Test
-    public void testtoString() {
-        studentID StudnetRegId;
-        String id = "a2222";
-        StudnetRegId = studentID.valueOf(id);
-        assertEquals(StudnetRegId.toString(), id);
+    public void TestGetPartOfStudentID() {
+        final String s;
+        s = Student.GetPartOfStudentID(studentID.cstudentID());
+        System.out.println(s);
     }
 
 }

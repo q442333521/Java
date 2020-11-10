@@ -1,10 +1,7 @@
 package uk.ac.ncl.teach.test;
 import org.junit.Test;
-import uk.ac.ncl.teach.smartcard.PutSmartCardToMap;
-import uk.ac.ncl.teach.students.studentID;
-import uk.ac.ncl.teach.students.Student;
-
-import java.util.Date;
+import uk.ac.ncl.teach.Module.PutSmartCardToMap;
+import uk.ac.ncl.teach.Module.Student;
 
 public class DeAbstractSmartCardTest {
     //private PutSmartCardToMap a = new PutSmartCardToMap();
@@ -46,6 +43,24 @@ public class DeAbstractSmartCardTest {
         PutSmartCardToMap.setExpiryDate(card2, student2);
         PutSmartCardToMap.getExpiryDate(card2);
     }
-
+    @Test
+    public void TestWrongage() {
+        String StudnetRegId = "a1235";
+        Student student = PutSmartCardToMap.CreateStudent(StudnetRegId, "UG", "Dohn", "Coe", new Student.MyDate(30, 12, 2004));
+        PutSmartCardToMap.createSmardCard(student);
+        String StudnetRegId1 = "a1236";
+        Student student1 = PutSmartCardToMap.CreateStudent(StudnetRegId1, "PGR", "Dohn", "Coe", new Student.MyDate(30, 12, 2010));
+        PutSmartCardToMap.createSmardCard(student1);
+        String StudnetRegId2 = "a1237";
+        Student student2 = PutSmartCardToMap.CreateStudent(StudnetRegId2, "PGR", "Dohn", "Coe", new Student.MyDate(30, 12, 1999));
+        PutSmartCardToMap.createSmardCard(student2);
+    }
+    @Test
+    public void gettypeOfStudent() {
+        String StudnetRegId = "a1235";
+        Student student = PutSmartCardToMap.CreateStudent(StudnetRegId, "UG", "Dohn", "Coe", new Student.MyDate(30, 12, 2004));
+        String type = student.gettypeOfStudent();
+        System.out.println(type);
+    }
 
 }
