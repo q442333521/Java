@@ -8,10 +8,17 @@ import ncl.teach.entity.StudentID;
 
 import static org.junit.Assert.*;
 
+/**
+ * The type Course test.
+ */
 public class CourseTest {
     private Course course = new Course();
     //private StudentID StudentID = new StudentID();
     private SmartCard application = new SmartCard();
+
+    /**
+     * Gets all course.
+     */
     @Test
     public void getAllCourse() {
          Course c =new Course();
@@ -19,6 +26,10 @@ public class CourseTest {
         String str = c.getCourse();
         //assertNotEquals(null, str);
     }
+
+    /**
+     * Gets course.
+     */
     @Test
     public void getCourse() {
         new Course().setCourse();
@@ -26,29 +37,37 @@ public class CourseTest {
         int num = new Course().getCourseGrade(courseno);
         assertEquals(20, num);
     }
+
+    /**
+     * Test enough credits.
+     */
     @Test
     public void TestEnoughCredits() {
 
         new Course().setCourse();
         String str = StudentID.cstudentID();
-        Student student = application.CreateStudent(str, "UG", "John", "Doe", new Student.MyDate(30, 12, 1992));
+        Student student = application.CreateStudent(str, "UG", "John", "Doe", new Student.myDate(30, 12, 1992));
         String courses = "CSC8401,CSC8402,CSC8403,CSC8404,CSC8405";
         boolean b = new Course().EnoughCredits(courses, student);
         assertTrue(b);
 
         new Course().setCourse();
         String str1 = StudentID.cstudentID();
-        Student student1 = application.CreateStudent(str1, "PGT", "John", "Doe", new Student.MyDate(30, 12, 1992));
+        Student student1 = application.CreateStudent(str1, "PGT", "John", "Doe", new Student.myDate(30, 12, 1992));
         String courses1 = "CSC8401,CSC8402,CSC8403";
         boolean b1 = new Course().EnoughCredits(courses1, student1);
         assertFalse(b1);
     }
+
+    /**
+     * Test Gets supervisor.
+     */
     @Test
     public void getSupervisor() {
         String str = StudentID.cstudentID();
-        Student student = application.CreateStudent(str, "PGR", "John", "Doe", new Student.MyDate(30, 12, 1992));
+        Student student = application.CreateStudent(str, "PGR", "John", "Doe", new Student.myDate(30, 12, 1992));
         new Course().setSupervisor(student,1);
-        String name = new Course().getSupervisor(student,1);
+        String name = new Course().getSupervisor(student);
         assertEquals("Bill gates", name);
     }
 

@@ -6,8 +6,15 @@ import ncl.teach.entity.StudentID;
 
 import static org.junit.Assert.*;
 
+/**
+ * The type Student id test.
+ */
 public class StudentIDTest {
     private StudentID StudentID = new StudentID();
+
+    /**
+     * Student id correct test.
+     */
     @Test
     public void StudentIDCorrectTest() {
         StudentID StudnetRegId;
@@ -17,6 +24,10 @@ public class StudentIDTest {
         StudnetRegId = StudentID.valueOf("z9999");
         assertNotNull(StudnetRegId);
     }
+
+    /**
+     * Wrong format test.
+     */
     @Test
     public void WrongFormatTest() {
         StudentID StudnetRegId;
@@ -46,6 +57,10 @@ public class StudentIDTest {
         StudnetRegId = StudentID.valueOf("a2222");
         assertNull(StudnetRegId);
     }
+
+    /**
+     * Test get part of student id.
+     */
     @Test
     public void TestGetPartOfStudentID() {
         final String s;

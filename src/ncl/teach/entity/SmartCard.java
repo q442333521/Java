@@ -7,12 +7,30 @@ import java.text.SimpleDateFormat;
 
 import java.util.*;
 
+/**
+ * The type Smart card.
+ */
 public class SmartCard extends Student {
     private static Date dateOfIssue;
+    /**
+     * The Unique smart card.
+     */
     protected HashMap<String, SmartCard> uniqueSmartCard = new HashMap<>();
+    private final Map<String,Date> ExpiryDate = new HashMap<>();
+    /**
+     * The Component.
+     */
     protected String[] component;
     private final DateFormat dateFormat = new SimpleDateFormat("yyyy");
     private final Random rnd = new Random();
+
+    /**
+     * Use student message to Create the student's smartcard.
+     * If the studnet don't meet the conditions, it will not create
+     * @param student the TYPE OF student
+     * @param dateOfIssue the date Of Issue time
+     * @reture   a smart card
+     */
 
     public SmartCard SmartCard(Student student, Date dateOfIssue) {
         if (student != null) {
@@ -39,18 +57,42 @@ public class SmartCard extends Student {
     }
 
 
+    /**
+     * Gets date of issue.
+     *
+     * @return the date of issue
+     */
     public Date getDateOfIssue() {
         return dateOfIssue;
     }
-    public Student CreateStudent(String studentIDNumber, String typeOfStudent, String FirstName, String LastName, Student.MyDate DateOfBirth) {
+
+    /**
+     * Create student student.
+     *
+     * @param studentIDNumber the student id number
+     * @param typeOfStudent   the type of student
+     * @param FirstName       the first name
+     * @param LastName        the last name
+     * @param DateOfBirth     the date of birth
+     * @return the student
+     */
+    public Student CreateStudent(String studentIDNumber, String typeOfStudent, String FirstName, String LastName, myDate DateOfBirth) {
         return new getStudent(studentIDNumber, typeOfStudent, FirstName,LastName,DateOfBirth );
     }
 
+
+
+    /**
+     * Use student message to Create the student's smartcard.
+     * If the studnet don't meet the conditions, it will not create
+     * @param student the TYPE OF student
+     *
+     */
     public SmartCard createSmardCard(Student student) {
         Date time = Calendar.getInstance().getTime();
         Calendar ca = Calendar.getInstance();
         int nowyear =ca.get(Calendar.YEAR);
-        int brithyear = Student.MyDate.getYear();
+        int brithyear = myDate.getYear();
         int age = nowyear -brithyear;
         if (student.gettypeOfStudent().equals("UG") & age < 17) {
             student=null;
@@ -67,35 +109,44 @@ public class SmartCard extends Student {
 
 
 
-    private final Map<String,Date> ExpiryDate = new HashMap<>();
-    public void setExpiryDate(String strcard, Student student) {
+    /**
+     * Set Expiry Date of smart card
+     * @param strcard the id of smart card
+     * @param student the date Of Issue time
+     *
+     */
 
+    public void setExpiryDate(String strcard, Student student) {
         SmartCard smartCard = uniqueSmartCard.get(strcard);
         Date cardDateOfIssue = smartCard.getDateOfIssue();
         Calendar cal = Calendar.getInstance();
-        cal.setTime(cardDateOfIssue);//设置起时间
+        cal.setTime(cardDateOfIssue);
         switch (student.gettypeOfStudent()) {
             case "UG" -> {
-                cal.add(Calendar.YEAR, 4);//增加一年
+                cal.add(Calendar.YEAR, 4);
 
                 Date newdate = cal.getTime();
                 ExpiryDate.put(strcard, newdate);
             }
             case "PGT" -> {
-                cal.add(Calendar.YEAR, 2);//增加一年
+                cal.add(Calendar.YEAR, 2);
 
                 Date newdate = cal.getTime();
                 ExpiryDate.put(strcard, newdate);
             }
             case "PGR" -> {
-                cal.add(Calendar.YEAR, 5);//增加一年
+                cal.add(Calendar.YEAR, 5);
 
                 Date newdate = cal.getTime();
                 ExpiryDate.put(strcard, newdate);
             }
         }
     }
-
+    /**
+     * Get Expiry Date of smart card through string id of smard card
+     * @param strcard the id of smart card
+     *
+     */
     public void getExpiryDate(String strcard) {
         Date expiryDate = ExpiryDate.get(strcard);
         System.out.println(strcard+" ---------Expiry Date--------"+ expiryDate);

@@ -19,9 +19,9 @@ public class SchoolSystemTest {
         String strId= "UG";
         String StudnetRegId;
         StudnetRegId = "a1235";
-        a.registerStudent(StudnetRegId, "UG", "John", "Doe", new Student.MyDate(30, 12, 1992));
+        a.registerStudent(StudnetRegId, "UG", "John", "Doe", new Student.myDate(30, 12, 1992));
         StudnetRegId = "a1234";
-        a.registerStudent(StudnetRegId, "UG", "John1", "Doe1", new Student.MyDate(30, 12, 1992));
+        a.registerStudent(StudnetRegId, "UG", "John1", "Doe1", new Student.myDate(30, 12, 1992));
 
         int no = a.noOfStudents(strId);
         System.out.println(no);
@@ -34,9 +34,9 @@ public class SchoolSystemTest {
 
 
          String StudnetRegId = "a1237";
-        //Student student1 = a.createStudent("StudnetRegId", "UG", "John", "Doe", new MyDate(30, 12, 1992));
+        //Student student1 = a.createStudent("StudnetRegId", "UG", "John", "Doe", new myDate(30, 12, 1992));
 
-        a.registerStudent(StudnetRegId, "UG", "John", "Doe", new Student.MyDate(30, 12, 1992));
+        a.registerStudent(StudnetRegId, "UG", "John", "Doe", new Student.myDate(30, 12, 1992));
         a.showAllStudent();
     }
 
@@ -47,9 +47,9 @@ public class SchoolSystemTest {
 
 
         String StudnetRegId = "a1238";
-        a.registerStudent(StudnetRegId, "UG", "John", "Doe", new Student.MyDate(30, 12, 1992));
+        a.registerStudent(StudnetRegId, "UG", "John", "Doe", new Student.myDate(30, 12, 1992));
         a.showAllStudent();
-        a.amendStudentData(StudnetRegId, "PGT", "Kate", "Wang", new Student.MyDate(11, 11, 1991));
+        a.amendStudentData(StudnetRegId, "PGT", "Kate", "Wang", new Student.myDate(11, 11, 1991));
         a.showAllStudent();
     }
 
@@ -60,9 +60,9 @@ public class SchoolSystemTest {
 
 
         String StudnetRegId = "a1239";
-        a.registerStudent(StudnetRegId, "UG", "John", "Doe", new Student.MyDate(30, 12, 1992));
+        a.registerStudent(StudnetRegId, "UG", "John", "Doe", new Student.myDate(30, 12, 1992));
         StudnetRegId = "a0001";
-        a.registerStudent(StudnetRegId, "PGT", "Kate", "Wang", new Student.MyDate(11, 11, 1991));
+        a.registerStudent(StudnetRegId, "PGT", "Kate", "Wang", new Student.myDate(11, 11, 1991));
 
         a.showAllStudent();
         a.terminateStudent(StudentID.valueOf(StudnetRegId));

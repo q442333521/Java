@@ -6,11 +6,25 @@ import ncl.teach.myabstract.Student;
 import java.util.HashMap;
 import java.util.Random;
 
+/**
+ * The type Student id.
+ */
 public class StudentID extends Student {
 
+    /**
+     * The Uniquestudent id.
+     */
     protected HashMap<String, StudentID> uniquestudentID = new HashMap<>();
+    /**
+     * The Components.
+     */
     protected String components;
 
+    /**
+     * Cstudent id string.
+     *
+     * @return the string
+     */
     public static String cstudentID() {
 
         StringBuilder str = new StringBuilder();
@@ -20,6 +34,13 @@ public class StudentID extends Student {
         String num = String.format("%04d",new Random().nextInt(9999));
         return str.toString().concat(num);
     }
+
+    /**
+     * Value of student id.
+     *
+     * @param sid the sid
+     * @return the student id
+     */
     public StudentID valueOf(String sid) {
 
 

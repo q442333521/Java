@@ -9,9 +9,26 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * The type Course.
+ */
 public class Course extends Student {
+    /**
+     * The Supervisors.
+     */
     static Map<String, String> supervisors = new HashMap<>();
+    /**
+     * The Courses.
+     */
     static Map<String, String> courses = new HashMap<>();
+
+    /**
+     * Set supervisor.
+     *
+     * @param student       the student
+     * @param NumSupervisor the num supervisor
+     */
     public void setSupervisor(Student student,int NumSupervisor){
         File file = new File("resources/supervisor");
         try {
@@ -28,7 +45,14 @@ public class Course extends Student {
             e.printStackTrace();
         }
     }
-    public String getSupervisor(Student student,int NumSupervisor){
+
+    /**
+     * Get supervisor string.
+     *
+     * @param student       the student
+     * @return the string
+     */
+    public String getSupervisor(Student student){
         String name = supervisors.get(student.GetStudentID());
         System.out.println("Your Supervisor is "+name);
         return name;
@@ -58,6 +82,13 @@ public class Course extends Student {
         }
         return null;
     }
+
+    /**
+     * Get course grade int.
+     *
+     * @param courseNo the course no
+     * @return the int
+     */
     public int getCourseGrade(String courseNo){
         //Set<String> keys = map.keySet();
         String str = courses.get(courseNo);
@@ -69,18 +100,20 @@ public class Course extends Student {
 
             String num =part[2];
             num = num.trim();
-            while (num.startsWith("　")) {//这里判断是不是全角空格
-                num = num.substring(1, num.length()).trim();
-            }
-            while (num.endsWith("　")) {
-                num = num.substring(0, num.length() - 1).trim();
-            }
-
             int numint = Integer.parseInt(num);
             System.out.println(numint);
             return numint;
         }
     }
+
+    /**
+     * Enough credits boolean.
+     *
+     * @param str     the str
+     * @param student the student
+     * @return the boolean
+     */
+
     public boolean EnoughCredits(String str, Student student){
         String[] courses = str.split(",");
         int num;
